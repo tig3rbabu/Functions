@@ -1,0 +1,13 @@
+live_loop :melody do
+  tick(:i)
+  mel = [#note section#].ring.look(:i)
+  tm = [#time section#].ring.look(:i)
+  tick_reset(:ii)
+  with_fx :echo, phase: 0.75, decay: 4, mix: 0.6 do
+    tm.length.times do
+      tick(:ii)
+      synth :dsaw, note: mel.look(:ii)     
+      sleep tt.ring.look(:ii)*0.5
+    end
+  end
+end
