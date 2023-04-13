@@ -1,0 +1,21 @@
+use_random_seed 1
+
+mel = []
+n = 20
+num = [1,2,3]
+
+n.times do
+  mel.push(num.choose)
+end
+
+if mel<<32
+  mel.push(32-mel.sum)
+else mel>>32
+  mel.push(64-mel.sum)
+end
+
+n.times do
+  puts mel.tick
+end
+
+puts mel.sum
