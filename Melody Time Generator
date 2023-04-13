@@ -1,21 +1,28 @@
-use_random_seed 1
+use_random_seed 4
 
-mel = []
-n = 20
-num = [1,2,3]
-
-n.times do
-  mel.push(num.choose)
-end
-
-if mel<<32
-  mel.push(32-mel.sum)
-else mel>>32
-  mel.push(64-mel.sum)
-end
+tm = []
+n = 28
+num = [1,3,4,2,0.5]
 
 n.times do
-  puts mel.tick
+  tm.push(num.choose)
 end
 
-puts mel.sum
+gg = tm.sum
+
+##| puts tm.length
+
+if gg < 32
+  tm.push(32-gg)
+elsif gg > 32
+  tm.push(64-gg)
+else
+  tm.push(0)
+end
+
+tm.length.times do
+  puts tm.tick
+end
+
+##| puts tm.length
+puts tm.sum
