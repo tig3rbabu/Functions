@@ -1,0 +1,21 @@
+
+
+
+ndx = []
+mel = []
+sc1 = scale(64+12,:minor_pentatonic)
+
+def melody_notes (indx,arr,sca,notenum)
+  sca.length.times do
+    indx.push(sca.index(sca.tick))
+  end
+  notenum.times do
+    arr.push(indx.choose)
+  end
+end
+
+melody_notes ndx,mel,sc1,28
+
+mel.length.times do
+  puts mel.tick
+end
